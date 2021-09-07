@@ -1,0 +1,9 @@
+{% if resources %}
+    <ul>
+    {% for resource  in resources %}
+        <li><a href="{{ resource.link }}">{{ resource.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No resources are available.</p>
+{% endif %}
