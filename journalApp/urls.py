@@ -21,8 +21,8 @@ from django.contrib import admin
 import journal
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
-    path(r'^journal/', include('journal.urls')),
+    path('admin/', admin.site.urls),
+    path('journal/', include('journal.urls')),
     path('', include('journal.urls')),
     path('projects/', include('journal.urls')),
 ]
