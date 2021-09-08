@@ -5,14 +5,28 @@ from django.template import loader
 
 # Create your views here.
 
-def index(request):
+def table(request):
     output = "hlelp me"
     resources = Resource.objects.all()
     template = loader.get_template('table.html')
-    name_list = ", ".join([r.name for r in resources])
-    link_list = ", ".join([r.link for r in resources])
-    software_list = ", ".join([r.software for r in resources])
-    attachment_list = ", ".join(["attachment" for r in resources])
+    context = {
+        'resources': resources,
+    }
+    return HttpResponse(template.render(context, request))
+
+def tetris(request):
+    output = "hlelp me"
+    resources = Resource.objects.all()
+    template = loader.get_template('tetris.html')
+    context = {
+        'resources': resources,
+    }
+    return HttpResponse(template.render(context, request))
+
+def header(request):
+    output = "hlelp me"
+    resources = Resource.objects.all()
+    template = loader.get_template('header.html')
     context = {
         'resources': resources,
     }
