@@ -1,7 +1,11 @@
 <div class="header">
-  <a href="#default" class="logo">CompanyLogo</a>
+    <a href="http://www.freepik.com" style="font-size:5pt;padding:0px;line-height:0px">Designed by macrovector / Freepik</a>
+  <a href="/journal" class="logo">
+        {% load static %}
+        <img class ="logoImg" src="{% static 'images/logo.jpg' %}" alt="logo">
+  </a>
   <div class="header-right">
-    <a class="active" href="#home">Home</a>
+    <a class="active" href="/journal">Home</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
   </div>

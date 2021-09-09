@@ -2,7 +2,7 @@
     <table>
         <tr><th>Name</th><th>Link</th><th>Software</th><th>Attachments</th></tr>
     {% for resource  in resources %}
-            <tr><td>{{ resource.name }}</td><td><a href="{{ resource.link }}">{{ resource.link }}</a></td><td>{{ resource.software }}</td><td>{{ resource.attachment }}</td></tr>
+            <tr><td>{{ resource.name }}</td><td><a href="{{ resource.link }}">{{ resource.link }}</a></td><td>{{ resource.software }}</td><td><a href="{{ resource.attachment }}">{{ resource.attachment }}</a></td></tr>
     {% endfor %}
     </table>
 {% else %}

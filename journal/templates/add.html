@@ -1,21 +1,8 @@
-{% extends 'asset/base.html' %}
-{% block content %}
-<form method="POST" action="{% url 'asset-add' %}">
-{% csrf_token %}
-<div class="form-group">
-<label for="name">Name</label>
-<input type="text" class="form-control" name="name" aria-describedby="name" placeholder="Name">
-</div>
-{% if form.errors %}
-{% for field in form %}
-{% for error in field.errors %}
-<div class="alert alert-danger">
-<strong>{{ error|escape }}</strong>
-</div>
-{% endfor %}
-{% endfor %}
-{% endif %}
 
-<button type="submit" class="btn btn-primary">Submit</button>
+<form action="{% url 'journal:add' %}" method="post">
+    <label for="name">Title: <input type="text" name="name">
+    <label for="link">Link: <input type="url" name="link">
+    <label for="software">Software: <input type="text" name="software">
+    <label for="attachment">Attachments: <input type="file" name="attachment">
+<input type="submit" value="Submit">
 </form>
-{% endblock %}
