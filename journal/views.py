@@ -6,8 +6,8 @@ import datetime
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from journal.forms import AddResourceForm
 from journal.models import Resource
+from journal.models import Software
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from journal import views
@@ -20,17 +20,17 @@ def tetris(request):
     context = {
         'resources': resources,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'home.html', {})
 
 def home_view(request):
     resources = Resource.objects.all()
+    softwares = Software.objects.all()
     template =loader.get_template('home.html')
-    #resource_list = ",".join([r.name for r in Resources_list])
     context = {
-        'resources': resources
+        'resources': resources,
+        'softwares': softwares
     }
     return HttpResponse(template.render(context, request))
-
 
 class ResourceCreateView(CreateView):
     model = Resource

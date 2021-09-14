@@ -12,3 +12,4 @@ urlpatterns = [
     path('resources/delete/<int:pk>', views.ResourceDeleteView.as_view(), name='resource-delete'),
 
 ]
+
