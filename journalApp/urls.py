@@ -29,6 +29,7 @@ urlpatterns = [
     path('journal/', include('journal.urls')),
     path('', include(('journal.urls', 'journal'), namespace = 'journal')),
     path('projects/', include('journal.urls')),
+    #path('', include('bootstrap4.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

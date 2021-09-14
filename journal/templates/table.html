@@ -1,10 +1,16 @@
-{% if resources %}
-    <table>
-        <tr><th>Name</th><th>Link</th><th>Software</th><th>Attachments</th></tr>
-    {% for resource  in resources %}
-            <tr><td>{{ resource.name }}</td><td><a href="{{ resource.link }}">{{ resource.link }}</a></td><td>{{ resource.software }}</td><td><a href="{{ resource.attachment }}">{{ resource.attachment }}</a></td></tr>
-    {% endfor %}
-    </table>
-{% else %}
-    <p>No resources are available.</p>
-{% endif %}
+<div id="#homeTable"><a href="/resources/new" class="btn">  <div class="default"><i class="bi bi-upload"></i>&nbsp; Create New Resource</div> </a>
+    {% if resources %}
+        <table>
+            <thead><tr><th>Name</th><th>Link</th><th>Software</th><th>Attachments</th></tr></thead>
+            <tbody id="myTable">
+                {% for resource  in resources %}
+                    <tr><td>{{ resource.name }}</td><td><a href="{{ resource.link }}">{{ resource.link }}</a></td>
+                    <td><ul>{% for software in resource.software.all %}<li class="filterDiv {{ software }}" style="list-style-type: none"><a class="tagbtn" href=""> {{ software }} </a></li>{% endfor %}</ul></td>
+                    <td><a href="/media/{{ resource.attachment }}" title="{{ resource.attachment }}"><i class="bi bi-link-45deg"></i>{{ resource.attachment }}</a></td><td class="tableFunctions"><a href="/resources/update/{{ resource.id }}"><i class="bi bi-gear-fill"></i></a>     <a href="/resources/delete/{{ resource.id }}"><i class="bi bi-x-square-fill"></i></a></td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No resources are available.</p>
+    {% endif %}
+</div>
