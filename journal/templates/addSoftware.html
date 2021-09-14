@@ -1,0 +1,23 @@
+{% include "./header.html" %}
+</div>
+</div>
+<div class="main_body">
+    <div class="container" >
+        <h2>Add a software tag</h2>
+        <form class="form" id="softwareForm" action="" method="POST" enctype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+
+    <fieldset class="form-fieldset ui-input">
+        {{ form.SoftwareTag }}
+        <label class="formLabels" for="id_{{ form.SoftwareTag.name }}">
+            <span data-text="{{ form.SoftwareTag.name }}">{{ form.SoftwareTag.name }}</span>
+        </label>
+    </fieldset>
+    <div class="form-footer">
+        <a class="btn" href="../../">cancel</a>
+            <button class="btn" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+</div>
+{% include "./footer.html" %}

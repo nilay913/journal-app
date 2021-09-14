@@ -20,6 +20,8 @@
     border: 1px solid white;
   }
   </style>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'journal/style.css' %}">
 </head>
 <body>
 <canvas width="320" height="640" id="game"></canvas>
@@ -315,5 +317,6 @@ document.addEventListener('keydown', function(e) {
 // start the game
 rAF = requestAnimationFrame(loop);
 </script>
+<a class="btn" href="/journal">Home</a>
 </body>
 </html>

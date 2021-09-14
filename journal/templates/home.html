@@ -1,9 +1,12 @@
 {% include "./header.html" %}
 <nav>
-    <ul>
+    <ul id="filters">
+        <li class="tabs__tab tabs__tab--filterTab">
+            <a class="tabs__tab-inner" onclick = "filterObjects('all')">Show All</a>
+        </li>
         {% for software in softwares %}
             <li class="tabs__tab tabs__tab--filterTab">
-                <a class="tabs__tab-inner" href="#">{{ software }}</a>
+                <a class="tabs__tab-inner" onclick="filterObjects('{{ software }}')">{{ software }}</a>
             </li>
         {% endfor %}
         <input id="myInput" type="text" placeholder="Search..">
@@ -12,6 +15,6 @@
 </div>
 </div>
 <div class="main_body">
-    {% include "./table.html" %}
+{% include "./table.html" %}
 </div>
 {% include "./footer.html" %}

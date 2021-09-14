@@ -14,13 +14,7 @@ from journal import views
 # Create your views here.
 
 def tetris(request):
-    output = "hlelp me"
-    resources = Resource.objects.all()
-    template = loader.get_template('tetris.html')
-    context = {
-        'resources': resources,
-    }
-    return render(request, 'home.html', {})
+    return render(request, 'tetris.html', {})
 
 def home_view(request):
     resources = Resource.objects.all()
@@ -38,6 +32,18 @@ class ResourceCreateView(CreateView):
     template_name = 'resourceForm.html'
     success_url = reverse_lazy('journal:home')
 
+    def resourceForm(request):
+        if request.method == 'POST':
+            form = AddResourceForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return redirect('journal:home')
+        else:
+            form = AddResourceForm()
+        return render(request, 'core/resourceForm.html', {
+            'form': form
+        })
+
 class ResourceUpdateView(UpdateView):
     model = Resource
     fields = ['name', 'link', 'software', 'attachment']
@@ -51,3 +57,12 @@ class ResourceDeleteView(DeleteView):
     context_object_name = 'resources'
     template_name = 'deleteForm.html'
     success_url = reverse_lazy('journal:home')
+
+class SoftwareCreateView(CreateView):
+    model = Software
+    fields = ['SoftwareTag']
+    template_name = 'addSoftware.html'
+    success_url = reverse_lazy('journal:home')
+
+    def form_invalid(self, form):
+        return HttpResponseRedirect(self.get_success_url())
