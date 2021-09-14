@@ -348,6 +348,85 @@ fieldset {
 }
 .footer {
     text-align: center;
-    height: 150px;
+    height: 100px;
     background-color: #565461;
+}
+#tetrisButton {
+    position:absolute;
+    top:50px;
+    right: 50px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+ .reveal {
+	 position: relative;
+	 margin-left:auto;
+	 margin-right:auto;
+	 display: flex;
+	 font-size: 2rem;
+	 font-family: 'Raleway', sans-serif;
+	 text-transform: uppercase;
+	 letter-spacing: 3px;
+	 white-space: pre;
+	 width: fit-content;
+}
+ .reveal span {
+	 opacity: 0;
+	 transform: scale(0);
+	 animation: fade-in 2.5s forwards;
+}
+ .reveal::before, .reveal::after {
+	 position: absolute;
+	 content: "";
+	 top: 0;
+	 height: 100%;
+	 width: 2px;
+	 background: white;
+	 opacity: 0;
+	 transform: scale(0);
+}
+ .reveal::before {
+	 left: 50%;
+	 animation: slide-left 2s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+ .reveal::after {
+	 right: 50%;
+	 animation: slide-right 2s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+ @keyframes fade-in {
+	 to {
+		 opacity: 1;
+		 transform: scale(1);
+	}
+}
+ @keyframes slide-left {
+	 to {
+		 left: -6%;
+		 opacity: 1;
+		 transform: scale(0.9);
+	}
+}
+ @keyframes slide-right {
+	 to {
+		 right: -6%;
+		 opacity: 1;
+		 transform: scale(0.9);
+	}
+}
+.tableRow {
+    display: none;
+}
+.show {
+    display: table-row;
+}
+.footer{
+  overflow: hidden;
+  padding: 20px 10px 0px 10px;
+  background-color: #565461;
+
+   border: 5px solid #d9d9d9;
+   border-left: 0px;
+   border-right: 0px;
+   border-bottom: 0px;
+   font-size: 25px;
+   font-family: Courier, monospace;
 }
