@@ -1,0 +1,23 @@
+#in separate tab run
+selenium-server -port 4444
+
+#cd to folder working in
+npm install codeceptjs --save
+npx codeceptjs init
+npm i @codeceptjs/ui --save
+
+#if chosen webdriver durining intialisation
+npm i webdriverio@^5.2.2 codeceptjs --save-dev
+
+#create and name test
+npx codeceptjs gt
+npx codeceptjs def
+
+#in *_test.js file
+	I.amOnPage('https://website.site.web')
+	pause()
+
+#to run
+npx codeceptjs run -p pauseOnFail
+#or
+npx codecept-ui --app

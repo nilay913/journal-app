@@ -1,16 +1,19 @@
 <div id="#homeTable"><a href="/resources/new" class="btn">  <div class="default"><i class="bi bi-upload"></i>&nbsp; Create New Resource</div> </a>
+    <h1>Resources</h1>
     {% if resources %}
         <table>
             <thead><tr><th>Name</th><th>Link</th><th>Software<br><a href="/softwares/add" class="tagbtn" style="margin-left: -3px;">Add Software</a></th><th>Attachments</th></tr></thead>
             <tbody id="myTable">
                 {% for resource  in resources %}
-                    <tr class="tableRow {% for software in resource.software.all %} {{ software }} {% endfor %}"><td>{{ resource.name }}</td><td><a href="{{ resource.link }}">{{ resource.link }}</a></td>
-                    <td><ul>{% for software in resource.software.all %}<li style="list-style-type: none"><a class="tagbtn" href=""> {{ software }} </a></li>{% endfor %}</ul></td>
-                    <td><a href="/media/{{ resource.attachment }}" title="{{ resource.attachment }}"><i class="bi bi-link-45deg"></i> {{ resource.attachment }}</a></td><td class="tableFunctions"><a href="/resources/update/{{ resource.id }}"><i class="bi bi-gear-fill"></i></a>     <a href="/resources/delete/{{ resource.id }}"><i class="bi bi-x-square-fill"></i></a></td></tr>
+                    <tr class="tableRow {% for software in resource.software.all %} {{ software }} {% endfor %}"><td>{{ resource.name }}</td><td>{% if resource.link %}<a href="{{ resource.link }}">{{ resource.link }}</a>{% endif %}</td>
+                    <td><ul>{% for software in resource.software.all %}<li style="list-style-type: none"><a class="tagbtn" onclick="filterObjects('{{ software }}')"> {{ software }} </a></li>{% endfor %}</ul></td>
+                    <td>{% if resource.attachment %}<a href="/media/{{ resource.attachment }}" title="{{ resource.attachment }}"><i class="bi bi-link-45deg"></i> {{ resource.attachment }}</a>{% endif %}</td><td class="tableFunctions"><a href="/resources/update/{{ resource.id }}"><i class="bi bi-gear-fill"></i> Edit Resource</a></td><td><a href="/resources/delete/{{ resource.id }}"><i class="bi bi-x-square-fill"></i> Delete Resource</a></td></tr>
                 {% endfor %}
             </tbody>
         </table>
     {% else %}
+        <a href="/softwares/add" class="tagbtn" style="margin-left: -3px;">Add Software</a>
+        <br>
         <div class="reveal"><span>No resources are available.</span></div>
         <br>
     {% endif %}

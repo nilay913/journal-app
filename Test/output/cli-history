@@ -1,0 +1,5 @@
+
+
+<<< Recorded commands on Wed Sep 15 2021 13:57:36 GMT+0100 (British Summer Time)
+I.amOnPage("/admin/journal/resource/add/")
+I.amOnPage("admin/journal/resource/add/")
