@@ -12,5 +12,7 @@ urlpatterns = [
     path('resources/delete/<int:pk>', views.ResourceDeleteView.as_view(), name='resource-delete'),
     path('softwares/add', views.SoftwareCreateView.as_view(), name='software-add'),
     path('tetris', views.tetris, name='tetris'),
+    path('pacman', views.pacman, name='pacman'),
+    path('spaceInvaders', views.spaceInvaders, name='spaceInvaders'),
 ]
 

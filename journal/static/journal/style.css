@@ -356,6 +356,16 @@ fieldset {
     top:50px;
     right: 50px;
 }
+#pacmanButton {
+    position:absolute;
+    top:50px;
+    right: 150px;
+}
+#spaceButton {
+    position:absolute;
+    top:50px;
+    right: 262px;
+}
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
  .reveal {
 	 position: relative;
@@ -442,4 +452,8 @@ a{
 a:hover{
     text-decoration:none;
     color:#A8D2FF;
+}
+#spaceInvaders{
+	position:relative;
+	left: -59%;
 }

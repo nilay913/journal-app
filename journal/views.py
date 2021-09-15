@@ -16,6 +16,12 @@ from journal import views
 def tetris(request):
     return render(request, 'tetris.html', {})
 
+def pacman(request):
+    return render(request, 'pacman.html', {})
+
+def spaceInvaders(request):
+    return render(request, 'spaceInvaders.html', {})
+
 def home_view(request):
     resources = Resource.objects.all()
     softwares = Software.objects.all()
