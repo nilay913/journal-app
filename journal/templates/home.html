@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Journal Home</title>
 {% include "./header.html" %}
 <nav>
     <ul id="filters">
@@ -9,6 +13,7 @@
                 <a class="tabs__tab-inner" onclick="filterObjects('{{ software }}')">{{ software }}</a>
             </li>
         {% endfor %}
+        <label for="myInput">Filter Table:</label>
         <input id="myInput" type="text" placeholder="Search..">
     </ul>
 </nav>
